@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="81bb07f8-8663-4dd5-a19b-126a3b6dbc74" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://rm17.rocketmatter.net/Rocket700560/api_v2/Authentication.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Authentication.xsd" MetadataType="Schema" ID="cf9a341a-f77e-4b17-a0ad-75159493e0b3" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd3" />
+    <MetadataFile FileName="Authentication1.xsd" MetadataType="Schema" ID="90ddc0ca-9d87-42a4-a58f-66c5bfa31a96" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd2" />
+    <MetadataFile FileName="Authentication2.xsd" MetadataType="Schema" ID="49fe03a3-5f02-4ab0-8d37-707e31921c59" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd5" />
+    <MetadataFile FileName="Authentication.wsdl" MetadataType="Wsdl" ID="9e54e87d-dc12-43e9-92d1-c50bbdbbce1b" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?wsdl" />
+    <MetadataFile FileName="Authentication3.xsd" MetadataType="Schema" ID="beb5909a-1bde-4f9d-bb73-01f89da8423d" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd0" />
+    <MetadataFile FileName="Authentication4.xsd" MetadataType="Schema" ID="9799595e-c9c4-4f7c-82bd-16373cfe8e91" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd8" />
+    <MetadataFile FileName="Authentication5.xsd" MetadataType="Schema" ID="ea9b2349-8abc-4eca-a3a5-c7d3d28fe8b0" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd6" />
+    <MetadataFile FileName="Authentication6.xsd" MetadataType="Schema" ID="23aa6b23-745d-45af-93da-9979e3e06416" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd9" />
+    <MetadataFile FileName="Authentication.disco" MetadataType="Disco" ID="95ae282f-f85d-4c00-9dd4-cbb2ba2684e4" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?disco" />
+    <MetadataFile FileName="Authentication7.xsd" MetadataType="Schema" ID="f7b147e7-d7be-48f1-b55e-34dd4cb5202e" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd4" />
+    <MetadataFile FileName="Authentication8.xsd" MetadataType="Schema" ID="95e8f5e3-b043-4acf-873c-df0323277428" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd1" />
+    <MetadataFile FileName="Authentication9.xsd" MetadataType="Schema" ID="3994bd7f-f309-4233-82e8-130b624ce750" SourceId="1" SourceUrl="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd7" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
