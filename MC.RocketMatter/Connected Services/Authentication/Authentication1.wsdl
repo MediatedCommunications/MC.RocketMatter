@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Authentication" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Otive.Web.API_V2.DTO.Request.Authentication" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Otive.Web.API_V2.DTO" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Origin.Core.Validation.Classes" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Origin.Core" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Otive.Web.API_V2.DTO.Response.Authentication" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Otive.Web.API_V2.DTO.Request.Mobile" />
+      <xsd:import schemaLocation="https://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Otive.Web.API_V2.DTO.Response.Mobile" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuthentication_GrantToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GrantToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_GrantToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GrantTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_RefreshToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_RefreshToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_LogOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogOut" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_LogOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_GetNewRefreshToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewRefreshToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_GetNewRefreshToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewRefreshTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_RevokeToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:RevokeToken" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_RevokeToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevokeTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_GetMobileAuthenticationCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileAuthenticationCode" />
+  </wsdl:message>
+  <wsdl:message name="IAuthentication_GetMobileAuthenticationCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMobileAuthenticationCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAuthentication">
+    <wsdl:operation name="GrantToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/GrantToken" message="tns:IAuthentication_GrantToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/GrantTokenResponse" message="tns:IAuthentication_GrantToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/RefreshToken" message="tns:IAuthentication_RefreshToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/RefreshTokenResponse" message="tns:IAuthentication_RefreshToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/LogOut" message="tns:IAuthentication_LogOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/LogOutResponse" message="tns:IAuthentication_LogOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewRefreshToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/GetNewRefreshToken" message="tns:IAuthentication_GetNewRefreshToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/GetNewRefreshTokenResponse" message="tns:IAuthentication_GetNewRefreshToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RevokeToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/RevokeToken" message="tns:IAuthentication_RevokeToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/RevokeTokenResponse" message="tns:IAuthentication_RevokeToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileAuthenticationCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/GetMobileAuthenticationCode" message="tns:IAuthentication_GetMobileAuthenticationCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuthentication/GetMobileAuthenticationCodeResponse" message="tns:IAuthentication_GetMobileAuthenticationCode_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAuthentication" type="tns:IAuthentication">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GrantToken">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/GrantToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshToken">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/RefreshToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogOut">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/LogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewRefreshToken">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/GetNewRefreshToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RevokeToken">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/RevokeToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMobileAuthenticationCode">
+      <soap:operation soapAction="http://tempuri.org/IAuthentication/GetMobileAuthenticationCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Authentication">
+    <wsdl:port name="BasicHttpBinding_IAuthentication" binding="tns:BasicHttpBinding_IAuthentication">
+      <soap:address location="http://rm17.rocketmatter.net/Rocket700560/API_V2/Authentication.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

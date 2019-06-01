@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,25 +42,23 @@ namespace MC.RocketMatter {
                     client_secret = App.Secret,
                 });
 
+                var ApiClient = new MC.RocketMatter.RocketMatterApi(Instance, Grant.access_token);
 
-                var HttpClient = new HttpClient();
-                HttpClient.DefaultRequestHeaders.Add("Authorization", Grant.access_token);
 
-                var ClientToAdd = new {
-                    Client = new AddClientRequest {
-                        Code = "1234",
-                        Name = "Added Via API"
-                    }
+                var AllContacts = await ApiClient.Contacts_List();
+                var AllMatters = await ApiClient.Matters_List();
+                var AllInvoices = await ApiClient.Invoices_List();
+
+
+                var ClientData = new ClientData {
+                    Code = "1234",
+                    Name = "Added Via API",
+                    LastName = "Last Name1",
                 };
-
-                var Content = JsonConvert.SerializeObject(ClientToAdd);
                 
 
-                var Request = new HttpRequestMessage(HttpMethod.Post, Instance.UrlPrefix("Clients.svc/json/Save"));
-                Request.Content = new StringContent(Content, Encoding.UTF8, "text/xml");
-                //Request.Content = new StringContent(Content, Encoding.UTF8, "application/json");
+                var Response = await ApiClient.Clients_Save(ClientData);
 
-                var Response = await HttpClient.SendAsync(Request);
 
 
 
@@ -69,101 +66,6 @@ namespace MC.RocketMatter {
 
             
         }
-    }
-
-    public class AddClientRequest {
-        public string Code { get; set; } = "";
-
-        public string Name { get; set; } = "";
-        public string FullName { get; set; } = "";
-        public string MiddleName { get; set; } = "";
-        public string LastName { get; set; } = "";
-        public bool IsCompany { get; set; } = false;
-
-
-
-        public string HomeEmail { get; set; } = "";
-        public string HomePhone { get; set; } = "";
-        public Address HomeAddress { get; set; } = new Address();
-
-        public string WorkEmail { get; set; } = "";
-        public Address WorkAddress { get; set; } = new Address();
-        public string WorkPhone { get; set; } = "";
-        public string WorkPhoneExt { get; set; } = "";
-
-        public string MobilePhone { get; set; } = "";
-        public string Notes { get; set; } = "";
-        public string PreferredDisplayName { get; set; } = "";
-        public string Salutation { get; set; } = "";
-        public string Title { get; set; } = "";
-    }
-
-    public class Address {
-        public string AddressLine1 { get; set; } = "";
-        public string AddressLine2 { get; set; } = "";
-        public string City { get; set; } = "";
-        public string State { get; set; } = "";
-        public string PostalCode { get; set; } = "";
-        public string Country { get; set; } = "";
-        public bool IsEmpty { get; set; } = false;
-    }
-
-    public class RocketMatterInstance {
-        public RocketMatterInstance(string Domain, string Install) {
-            try {
-                var Url = new Uri(Domain);
-                Domain = Url.Host;
-            } catch {
-
-            }
-
-            this.Domain = Domain;
-            this.Install = Install;
-            this.__UrlPrefix = $@"http://{Domain}/{Install}/API_V2/";
-
-        }
-
-        public string Domain { get; private set; }
-        public string Install { get; private set; }
-        private string __UrlPrefix { get; set; }
-
-        public string UrlPrefix(string UrlSuffix) {
-            var ret = $@"{__UrlPrefix}{UrlSuffix}";
-            return ret;
-        }
-
-
-    }
-
-    public class ServiceProvider {
-        public static ServiceProvider Instance { get; private set; } = new ServiceProvider();
-
-
-        public Authentication.AuthenticationClient CreateAuthenticationClient(RocketMatterInstance Instance) {
-            return CreateService<Authentication.AuthenticationClient>("Authentication.svc", Instance);
-        }
-
-        public Router.RouterClient CreateRouterClient() {
-            return CreateService<Router.RouterClient>("http://rocketmatter.net/router/Router.svc");
-        }
-
-        public T CreateService<T>(string UrlSuffix, RocketMatterInstance RocketMatter) where T : class, ICommunicationObject {
-
-            var UrlTemplate = RocketMatter.UrlPrefix(UrlSuffix);
-
-            return CreateService<T>( UrlTemplate);
-        }
-
-        public T CreateService<T>(string Url) where T : class, ICommunicationObject {
-            var Binding = new BasicHttpBinding();
-            var Endpoint = new EndpointAddress(Url);
-            var Args = new object[] { Binding, Endpoint };
-
-            var ret = Activator.CreateInstance(typeof(T), Args) as T;
-
-            return ret;
-        }
-
     }
 
 }
