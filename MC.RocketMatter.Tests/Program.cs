@@ -29,20 +29,13 @@ namespace MC.RocketMatter {
             } else {
 
                 
-                var Client = ServiceProvider.Instance.CreateRouterClient();
-
-                var Domain = Client.GetDomainForInstall(Auth.Install);
+                var Domain = await RocketMatterApi.GetDomainForInstall(Auth.Install);
 
                 var Instance = new RocketMatterInstance(Domain, Auth.Install);
 
-                var AuthService = ServiceProvider.Instance.CreateAuthenticationClient(Instance);
-                var Grant = AuthService.GrantToken(new Authentication.GrantTokenRequest() {
-                    grant_type = "code",
-                    code = Auth.Code,
-                    client_secret = App.Secret,
-                });
-
-                var ApiClient = new MC.RocketMatter.RocketMatterApi(Instance, Grant.access_token);
+                var Grant = await RocketMatterApi.GrantToken(Instance, Auth.Code, App.Secret);
+                
+                var ApiClient = new MC.RocketMatter.RocketMatterApi(Instance, Grant.Access_Token);
 
 
                 var AllContacts = await ApiClient.Contacts_List();
@@ -56,8 +49,6 @@ namespace MC.RocketMatter {
                     LastName = "Last Name1",
                 };
                 
-
-                var Response = await ApiClient.Clients_Save(ClientData);
 
 
 

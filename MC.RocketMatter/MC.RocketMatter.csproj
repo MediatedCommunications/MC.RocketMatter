@@ -55,16 +55,6 @@
     <Compile Include="Data\Address.cs" />
     <Compile Include="Data\Clients\ClientData.cs" />
     <Compile Include="Data\Clients\ClientWrapper.cs" />
-    <Compile Include="Connected Services\Authentication\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\Router\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Data\Contacts\ContactAddResponse.cs" />
     <Compile Include="Data\Contacts\ContactData.cs" />
     <Compile Include="Data\Contacts\ContactListResponse.cs" />
@@ -79,98 +69,13 @@
     <Compile Include="RocketMatterApi.cs" />
     <Compile Include="RocketMatterInstance.cs" />
     <Compile Include="Data\Serializer.cs" />
-    <Compile Include="ServiceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Authentication\Authentication.wsdl" />
-    <None Include="Connected Services\Authentication\Authentication.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\Authentication9.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Authentication\MC.RocketMatter.Authentication.BaseResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Authentication\MC.RocketMatter.Authentication.GetMobileAuthenticationCodeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Authentication\MC.RocketMatter.Authentication.GrantTokenResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Authentication\MC.RocketMatter.Authentication.RevokeTokenResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Router\Router.wsdl" />
-    <None Include="Connected Services\Router\Router.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\Router\Router1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Data\__Swagger\rocketmatterapi - tweaked.json" />
     <None Include="Data\__Swagger\rocketmatterapi.json" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Authentication\" />
-    <WCFMetadataStorage Include="Connected Services\Router\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Authentication\Authentication.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Authentication\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Authentication\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Authentication\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Router\Router.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Router\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Router\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\Router\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\__Common\" />
