@@ -1,92 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F43E9EC4-053E-41B2-BE9E-56C2D785B874}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>MC.RocketMatter</RootNamespace>
-    <AssemblyName>MC.RocketMatter</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyTitle>MC.RocketMatter</AssemblyTitle>
+    <Product>MC.RocketMatter</Product>
+    <Copyright>Copyright ©  2019</Copyright>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiClientApplicationInfo.cs" />
-    <Compile Include="AuthenticationProvider.cs" />
-    <Compile Include="Data\Address.cs" />
-    <Compile Include="Data\Clients\ClientData.cs" />
-    <Compile Include="Data\Clients\ClientWrapper.cs" />
-    <Compile Include="Data\Contacts\ContactAddResponse.cs" />
-    <Compile Include="Data\Contacts\ContactData.cs" />
-    <Compile Include="Data\Contacts\ContactListResponse.cs" />
-    <Compile Include="Data\Contacts\ContactsWrapper.cs" />
-    <Compile Include="Data\Contacts\ContactWrapper.cs" />
-    <Compile Include="Data\DataWrapper.cs" />
-    <Compile Include="Data\Matters\CreateMatterCommand.cs" />
-    <Compile Include="Data\Matters\MatterData.cs" />
-    <Compile Include="Data\Matters\MattersWrapper.cs" />
-    <Compile Include="Debugger2.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RocketMatterApi.cs" />
-    <Compile Include="RocketMatterInstance.cs" />
-    <Compile Include="Data\Serializer.cs" />
+    <Compile Remove="AuthenticationClient.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\__Swagger\rocketmatterapi - tweaked.json" />
-    <None Include="Data\__Swagger\rocketmatterapi.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\__Common\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="System.Net.Http">
-      <Version>4.3.4</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
