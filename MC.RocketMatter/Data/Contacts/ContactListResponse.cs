@@ -42,7 +42,7 @@ namespace MC.RocketMatter {
         public string Initials { get; set; }
         public string Notes { get; set; }
         public long? UserId { get; set; }
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string ExternalID { get; set; }
 
         protected string DebuggerDisplay {

@@ -5,6 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MC.RocketMatter  {
+
+    public class CreateTaskCommand {
+        public string Title { get; set; }
+        public string Notes { get; set; }
+        public long MatterID { get; set; }
+        public bool IsNoCharge { get; set; }
+        public bool IsNonBillable { get; set; }
+        public DateTimeOffset? BillingDate { get; set; }
+        public DateTimeOffset? CompletedDate { get; set; }
+        public decimal BillableUnits { get; set; }
+        public IdReferenceJson<ContactData> AssignedTo { get; set; }
+        public long? AssignedToID { get; set; }
+        public DateTimeOffset? DueDate { get; set; }
+        public bool IsComplete { get; set; }
+        
+    }
+
     public class CreateMatterCommand {
         public long? ID { get; set; }
 

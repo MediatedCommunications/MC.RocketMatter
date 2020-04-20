@@ -19,6 +19,8 @@
 
         public string WorkEmail { get; set; } = "";
         public Address WorkAddress { get; set; } = new Address();
+
+        public string WorkFax { get; set; } = "";
         public string WorkPhone { get; set; } = "";
         public string WorkPhoneExt { get; set; } = "";
 

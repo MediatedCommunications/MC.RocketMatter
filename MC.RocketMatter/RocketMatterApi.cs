@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace MC.RocketMatter {
 
-    public class GrantTokenResponse {
-        public string Access_Token { get; set; }
-        public DateTimeOffset Expires_At { get; set; }
-        public string Refresh_Token { get; set; }
-    }
-
     public class RocketMatterApi {
         private HttpClient HttpClient = new HttpClient();
         private RocketMatterInstance Instance;
@@ -23,7 +17,7 @@ namespace MC.RocketMatter {
             var Client = new HttpClient();
             var Response = await Client.Send<string>("https://rocketmatter.net/router/Router.svc/json/GetDomainForInstall", new {
                 InstallName = Install,
-            });
+            }).DefaultAwait();
 
             //var ret = await Response.Content.ReadAsStringAsync();
             var ret = Response;
@@ -38,7 +32,7 @@ namespace MC.RocketMatter {
                 grant_type = "code",
                 code = AuthCode,
                 client_secret = AppSecret,
-            });
+            }).DefaultAwait();
 
 
             return Response;
@@ -51,12 +45,40 @@ namespace MC.RocketMatter {
             HttpClient.DefaultRequestHeaders.Add("Authorization", Authorization);
         }
 
+        public async Task<TaskWrapper> Task_Add(CreateTaskCommand Task) {
+            var Data = new TaskWrapper<CreateTaskCommand> {
+                Task = Task
+            };
+
+            var ret = await Send<TaskWrapper>("tasks.svc/json/Save", Data)
+                .DefaultAwait()
+                ;
+
+            return ret;
+
+        }
+
+        public async Task<TimeEntryWrapper> TimeEntry_Add(TimeEntryData Value) {
+            var Data = new TimeEntryWrapper {
+                BillableTime = Value
+            };
+
+            var ret = await Send<TimeEntryWrapper>("/BillableActivity.svc/json/SaveBillableTime", Data)
+                .DefaultAwait()
+                ;
+
+            return ret;
+        }
+
+
         public async Task<ClientData> Clients_Add(ClientData Client) {
             var Data = new ClientWrapper {
                 Client = Client
             };
 
-            var ret = await Send<ClientData>("Clients.svc/json/Save", Data);
+            var ret = await Send<ClientData>("Clients.svc/json/Save", Data)
+                .DefaultAwait()
+                ;
 
             return ret;
         }
@@ -88,7 +110,9 @@ namespace MC.RocketMatter {
                 Sort = "LastName",
                 StartsWith = ""
             };
-            var ret = await Send<ContactsWrapper<LinkedList<ContactListResponse>>>("Contacts.svc/json/GetContactPage", Data);
+            var ret = await Send<ContactsWrapper<LinkedList<ContactListResponse>>>("Contacts.svc/json/GetContactPage", Data)
+                .DefaultAwait()
+                ;
 
             return ret.Contacts;
         }
@@ -101,7 +125,9 @@ namespace MC.RocketMatter {
                 Fetch = FETCH_MAX
             };
 
-            var ret = await Send<MattersWrapper>("Matters.svc/json/GetMattersBySearch", Data);
+            var ret = await Send<MattersWrapper>("Matters.svc/json/GetMattersBySearch", Data)
+                .DefaultAwait()
+                ;
 
             return ret.Matters;
         }
@@ -125,7 +151,9 @@ namespace MC.RocketMatter {
         }
 
         public async Task<DataWrapper> Matters_Delete(object Data) {
-            var ret = await Send<DataWrapper>("Matters.svc/json/DeleteMatter", Data);
+            var ret = await Send<DataWrapper>("Matters.svc/json/DeleteMatter", Data)
+                .DefaultAwait()
+                ;
 
             return ret;
         }
@@ -139,7 +167,9 @@ namespace MC.RocketMatter {
         }
 
         public async Task<DataWrapper> Contacts_Delete(object Data) {
-            var ret = await Send<DataWrapper>("Contacts.svc/json/DeleteContact", Data);
+            var ret = await Send<DataWrapper>("Contacts.svc/json/DeleteContact", Data)
+                .DefaultAwait()
+                ;
 
             return ret;
         }
@@ -157,7 +187,9 @@ namespace MC.RocketMatter {
                 }
             };
 
-            var ret = await Send<Object>("Invoices.svc/json/GetInvoiceDetail", Data);
+            var ret = await Send<Object>("Invoices.svc/json/GetInvoiceDetail", Data)
+                .DefaultAwait()
+                ;
 
             return null;
         }
@@ -179,16 +211,23 @@ namespace MC.RocketMatter {
             var Response = default(HttpResponseMessage);
             try {
 
-                Response = await This.SendAsync(Request);
+                Response = await This.SendAsync(Request)
+                    .DefaultAwait()
+                    ;
             } catch (Exception ex) {
-                
+                ex.Equals(ex);   
             }
             return Response;
         }
 
         public static async Task<T> Send<T>(this HttpClient This, string Url, object Data) {
-            var Response = await This.Send(Url, Data);
-            var ResponseContent = await Response.Content.ReadAsStreamAsync();
+            var Response = await This.Send(Url, Data)
+                .DefaultAwait()
+                ;
+            
+            var ResponseContent = await Response.Content.ReadAsStreamAsync()
+                .DefaultAwait()
+                ;
 
             var ret = Serializer.Deserialize<T>(ResponseContent);
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Logging;
 
 namespace MC.RocketMatter.Authentication.Embedded {
     public class ListenerAuthenticationProvider : AuthenticationProvider {
@@ -46,6 +47,14 @@ namespace MC.RocketMatter.Authentication.Embedded {
             Implementation = Implementation ?? new OAuthAcceptanceHandler();
 
             Host = WebHost.CreateDefaultBuilder()
+                .SuppressStatusMessages(true)
+
+                .ConfigureLogging((context, logging) =>
+                {
+                    // this removes the logging from all providers (mostly console)
+                    logging.ClearProviders();
+                    //snip: providers where I want the logging to happen
+                })
                 .UseKestrel(o => {
                     o.Listen(System.Net.IPAddress.Loopback, 0);
                 })
