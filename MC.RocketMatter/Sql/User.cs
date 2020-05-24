@@ -35,7 +35,7 @@ namespace MC.RocketMatter.Sql {
         public Guid? MembershipId { get; set; }
         public int? TenantId { get; set; }
         public bool IsOutlookCalendarSyncEnabled { get; set; }
-        public byte[] ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
         /// <summary>
         /// Yes - This is supposed to be mis-spelled
         /// </summary>

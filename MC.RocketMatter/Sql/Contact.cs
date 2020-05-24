@@ -65,7 +65,7 @@ namespace MC.RocketMatter.Sql {
         public string Import_ExternalId { get; set; }
         public Guid? Import_CreatedFromSessionID { get; set; }
 
-        public virtual ICollection<ContactCustomField> CustomFields { get; set; }
+        public virtual ICollection<ContactCustomFieldValue> CustomFields { get; set; }
         public virtual ICollection<Client> Clients { get; set; }
         public virtual ICollection<MatterContact> RelatedMatters { get; set; }
 

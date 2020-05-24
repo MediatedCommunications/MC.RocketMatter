@@ -7,6 +7,7 @@ namespace MC.RocketMatter.Sql {
             var Valid = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase) {
                 "Complete",
                 "Completed",
+                "Archived",
             };
 
             return Valid.Contains(This);

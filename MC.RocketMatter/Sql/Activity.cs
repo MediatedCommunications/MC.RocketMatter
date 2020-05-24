@@ -28,6 +28,10 @@ namespace MC.RocketMatter.Sql {
         public virtual ActivityType ActivityType { get; set; }
 
         public decimal Cost { get; set; }
+
+        /// <summary>
+        /// If the item is No-Charge
+        /// </summary>
         public bool IsCredit { get; set; }
         public int DeletedMatterId { get; set; }
         
@@ -40,6 +44,10 @@ namespace MC.RocketMatter.Sql {
         public DateTime CreatedDate { get; set; }
         public DateTime LastModifiedDate { get; set; }
         public bool BillingDateOverride { get; set; }
+
+        /// <summary>
+        /// Invisible on Bill
+        /// </summary>
         public bool NonBillable { get; set; }
 
         public int? TenantId { get; set; }
@@ -58,6 +66,8 @@ namespace MC.RocketMatter.Sql {
         public virtual ICollection<Email> EMails { get; set; }
         public virtual ICollection<Note> NoteItems { get; set; }
         public virtual ICollection<TodoItem> TodoItems { get; set; }
+        
+        public virtual ICollection<InvoicedActivityAmount> InvoicedActivityAmounts { get; set; }
 
     }
 

@@ -54,7 +54,10 @@ namespace MC.RocketMatter.Sql {
         public int? DefaultBillingTypeId { get; set; }
         public virtual MatterBillingType DefaultBillingType {get; set;}
 
+        [ForeignKey(nameof(CurrentMatterWorkFlowStatusHistory))]
         public Guid? CurrentMatterWorkFlowStatusHistoryId { get; set; }
+        public virtual WorkflowStatusHistory CurrentMatterWorkFlowStatusHistory { get; set; }
+
         public bool FireTemplateSelection { get; set; }
         public string Import_ExternalId { get; set; }
         public Guid? Import_CreatedFromSessionID { get; set; }
@@ -64,7 +67,7 @@ namespace MC.RocketMatter.Sql {
         public decimal? PendingTaxes { get; set; }
 
 
-        public virtual ICollection<MatterCustomField> CustomFields { get; set; }
+        public virtual ICollection<MatterCustomFieldValue> CustomFields { get; set; }
         public virtual ICollection<MatterContact> RelatedContacts { get; set; }
         public virtual ICollection<MatterTrustAccount> TrustAccounts { get; set; }
 

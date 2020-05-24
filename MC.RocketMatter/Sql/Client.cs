@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MC.RocketMatter.Sql {
@@ -18,6 +19,8 @@ namespace MC.RocketMatter.Sql {
         public string Import_ExternalId { get; set; }
         public Guid? Import_CreatedFromSessionID { get; set; }
         public decimal? TrustBalance { get; set; }
+
+        public virtual ICollection<ClientTrustAccount> TrustAccounts { get; set; }
 
     }
 

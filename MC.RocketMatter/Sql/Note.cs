@@ -8,7 +8,7 @@ namespace MC.RocketMatter.Sql {
         public string Body { get; set; }
         public int IsFlagged { get; set; }
         public DateTime DateLastModified { get; set; }
-        public int TenantId { get; set; }
+        public int? TenantId { get; set; }
 
         [ForeignKey(nameof(Activity))]
         public int ActivityId { get; set; }

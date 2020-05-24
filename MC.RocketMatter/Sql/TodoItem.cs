@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MC.RocketMatter.Sql {
+
     public class TodoItem {
         public int ID { get; set; }
 
