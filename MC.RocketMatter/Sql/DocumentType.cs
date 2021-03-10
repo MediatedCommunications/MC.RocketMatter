@@ -1,19 +1,30 @@
 ﻿namespace MC.RocketMatter.Sql {
     public class DocumentType {
-        public int ID { get; set; }
+        public byte ID { get; set; }
         public string Name { get; set; }
 
-        public static int Note => 1;
-        public static int UploadedDocument => 2;
-        public static int WebAddress => 3;
-        public static int DropboxFile => 4;
-        public static int DropboxDirectory => 5;
-        public static int EvernoteNote => 6;
-        public static int EvernoteNotebook => 7;
-        public static int MergedDocument => 8;
-        public static int BoxFile => 9;
-        public static int BoxDirectory => 10;
-        public static int UploadedDirectory => 11;
+        public static class Legacy {
+
+            //The legacy values are no longer used
+            public static byte Note => 1;
+            public static byte UploadedDocument => 2;
+            public static byte WebAddress => 3;
+            public static byte DropboxFile => 4;
+            public static byte DropboxDirectory => 5;
+            public static byte EvernoteNote => 6;
+            public static byte EvernoteNotebook => 7;
+            public static byte MergedDocument => 8;
+            public static byte BoxFile => 9;
+            public static byte BoxDirectory => 10;
+            public static byte UploadedDirectory => 11;
+        }
+
+
+        public static byte Folder => 1;
+        public static byte File => 2;
+        public static byte Url => 3;
+        public static byte Note => 4;
+
     }
 
 

@@ -15,8 +15,10 @@ namespace MC.RocketMatter.Sql {
         public bool IsPrivate { get; set; }
         public bool IsFlagged { get; set; }
         public bool IsAllDayEvent { get; set; }
+        public bool IsBillableForOwner { get; set; }
 
         public string PhoneNumber { get; set; }
+        
         
         public DateTime ReminderDateTime { get; set; }
         public int MailItemId { get; set; }

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +11,7 @@ namespace MC.RocketMatter.Sql {
         public DbSet<ActivityType> ActivityTypes { get; set; }
         
         public DbSet<Email> Emails { get; set; }
+        public DbSet<EmailAttachment> EmailAttachments { get; set; }
         public DbSet<EmailIntegrationType> EmailIntegrationTypes { get; set; }
 
         public DbSet<Note> Notes { get; set; }
@@ -26,14 +26,20 @@ namespace MC.RocketMatter.Sql {
         public DbSet<Client> Clients { get; set; }
         public DbSet<ClientTrustAccount> ClientTrustAccounts { get; set; }
         public DbSet<ClientTrustLedgerEntry> ClientTrustLedgerEntries { get; set; }
+        public DbSet<ClientTrustAccountMatter> ClientTrustAccountMatters { get; set; }
+
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<DocumentIntegration> DocumentIntegrations { get; set; }
 
         public DbSet<Matter> Matters { get; set; }
+        public DbSet<MatterTrustAccount> MatterTrustAccounts { get; set; }
+        public DbSet<MatterTrustLedgerEntry> MatterTrustLedgerEntries { get; set; }
+
         public DbSet<MatterStatusType> MatterStatuses { get; set; }
         public DbSet<MatterType> MatterTypes { get; set; }
 
         public DbSet<MatterPermissionType> MatterPermissionTypes { get; set; }
         public DbSet<MatterContact> MatterContacts { get; set; }
-        public DbSet<MatterTrustAccount> MatterTrustAccounts { get; set; }
 
         public DbSet<MatterCustomFieldDefinition> MatterCustomFieldDefinitions { get; set; }
         public DbSet<MatterCustomFieldDefinitionPicklistOption> MatterCustomFieldDefinitionPicklistOptions { get; set; }
@@ -53,6 +59,9 @@ namespace MC.RocketMatter.Sql {
         public DbSet<WorkflowStatus> WorkflowStatus { get; set; }
         public DbSet<WorkflowStatusHistory> WorkflowHistory { get; set; }
 
+        public DbSet<PhoneMessage> PhoneMessages { get; set; }
+
+        public DbSet<SystemProp> SystemProps { get; set; }
 
         public string ConnectionString { get; private set; }
 
@@ -106,6 +115,10 @@ namespace MC.RocketMatter.Sql {
 
             modelBuilder.Entity<WorkflowStatus>()
                 .ToTable("MatterWorkFlowStatus")
+                ;
+
+            modelBuilder.Entity<DocumentIntegration>()
+                .ToTable("DocumentIntegration")
                 ;
 
             modelBuilder.Entity<WorkflowStatusHistory>()

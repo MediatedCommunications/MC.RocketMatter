@@ -45,10 +45,8 @@ namespace MC.RocketMatter {
         public long ID { get; set; }
         public string ExternalID { get; set; }
 
-        protected string DebuggerDisplay {
-            get {
+        protected virtual string GetDebuggerDisplay() {
                 return $@"[{ID}] {FullName}";
-            }
         }
     }
 }

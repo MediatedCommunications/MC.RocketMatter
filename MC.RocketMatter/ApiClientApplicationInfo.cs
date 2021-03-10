@@ -24,11 +24,9 @@ namespace MC.RocketMatter {
             return ret;
         }
 
-        private string DebuggerDisplay {
-            get {
+        private string GetDebuggerDisplay() {
                 var ret = $@"{FriendlyName}";
                 return ret;
-            }
         }
 
     }

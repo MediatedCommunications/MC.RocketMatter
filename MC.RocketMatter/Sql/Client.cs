@@ -22,6 +22,7 @@ namespace MC.RocketMatter.Sql {
 
         public virtual ICollection<ClientTrustAccount> TrustAccounts { get; set; }
 
+        public static int Default => 0;
     }
 
 

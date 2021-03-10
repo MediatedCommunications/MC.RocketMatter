@@ -70,6 +70,7 @@ namespace MC.RocketMatter.Sql {
         public virtual ICollection<MatterContact> RelatedMatters { get; set; }
 
         public static string DefaultAdditionalInfo => "<ContactInfo />";
+        public static int Default => 0;
 
     }
 

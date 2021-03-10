@@ -21,6 +21,8 @@ namespace MC.RocketMatter.Sql {
         public string Import_ExternalId { get; set; }
         public Guid? Import_CreatedFromSessionID { get; set; }
 
+        public static string PrimaryAttorney => "Primary Attorney";
+
     }
 
 

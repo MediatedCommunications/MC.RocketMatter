@@ -56,6 +56,8 @@ namespace MC.RocketMatter.Sql {
         public static int DefaultPermissions => 1;
         public static int DefaultEmploymentStatus => 1;
 
+        public static int NullUserId => 0;
+
     }
 
     public class UserRate {

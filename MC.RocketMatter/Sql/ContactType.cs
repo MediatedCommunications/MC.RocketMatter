@@ -11,6 +11,15 @@
     }
 
 
+    public class SystemProps {
+        public string TheName { get; set; }
+        public string TheValue { get; set; }
 
+        public static string EnableDocumentVersions => "EnableDocumentVersions";
+        public static string EnableDocumentVersions_True = "true";
+        public static string EnableDocumentVersions_False = "false";
+
+
+    }
 
 }

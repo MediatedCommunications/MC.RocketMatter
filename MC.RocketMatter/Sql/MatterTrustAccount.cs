@@ -11,6 +11,9 @@ namespace MC.RocketMatter.Sql {
         [ForeignKey(nameof(Matter))]
         public int MatterId { get; set; }
         public virtual Matter Matter { get; set; }
+
+        public virtual ICollection<MatterTrustLedgerEntry> LedgerEntries { get; set; }
+
     }
 
 }

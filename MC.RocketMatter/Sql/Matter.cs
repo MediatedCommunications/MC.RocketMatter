@@ -15,14 +15,14 @@ namespace MC.RocketMatter.Sql {
         public string MatterCode { get; set; }
 
         [ForeignKey(nameof(MatterStatus))]
-        public int MatterStatusTypeId { get; set; }
+        public byte MatterStatusTypeId { get; set; }
         public virtual MatterStatusType MatterStatus { get; set; }
 
         public bool IsDeleted { get; set; }
         public bool IsContingency { get; set; }
 
         [ForeignKey(nameof(MatterType))]
-        public int MatterTypeId { get; set; }
+        public byte MatterTypeId { get; set; }
         public virtual MatterType MatterType { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -58,7 +58,7 @@ namespace MC.RocketMatter.Sql {
         public Guid? CurrentMatterWorkFlowStatusHistoryId { get; set; }
         public virtual WorkflowStatusHistory CurrentMatterWorkFlowStatusHistory { get; set; }
 
-        public bool FireTemplateSelection { get; set; }
+        public bool? FireTemplateSelection { get; set; }
         public string Import_ExternalId { get; set; }
         public Guid? Import_CreatedFromSessionID { get; set; }
         public decimal? PendingInvoicing { get; set; }
@@ -66,10 +66,16 @@ namespace MC.RocketMatter.Sql {
         public DateTime? LastActivityDate { get; set; }
         public decimal? PendingTaxes { get; set; }
 
+        [NotMapped]
+        public string CurrentMatterPracticeArea { get; set; }
+
 
         public virtual ICollection<MatterCustomFieldValue> CustomFields { get; set; }
         public virtual ICollection<MatterContact> RelatedContacts { get; set; }
         public virtual ICollection<MatterTrustAccount> TrustAccounts { get; set; }
+        public virtual ICollection<ClientTrustAccountMatter> ClientTrustAccountMatters { get; set; }
+
+        public static int Default => 0;
 
     }
 

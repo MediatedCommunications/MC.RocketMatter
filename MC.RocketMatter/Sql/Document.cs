@@ -14,7 +14,7 @@ namespace MC.RocketMatter.Sql {
         public string FileUrl { get; set; }
 
         [ForeignKey(nameof(DocumentType))]
-        public int DocumentTypeId { get; set; }
+        public byte DocumentTypeId { get; set; }
         public virtual DocumentType DocumentType { get; set; }
 
         public bool IsFlagged { get; set; }
@@ -24,15 +24,21 @@ namespace MC.RocketMatter.Sql {
         public virtual LedgerEntry LedgerEntry { get; set; }
 
         public string DocumentUid { get; set; }
-        public bool IsUnavailable { get; set; }
+        public bool? IsUnavailable { get; set; }
 
+        [ForeignKey(nameof(ParentDirectory))]
         public int? ParentDirectoryId { get; set; }
+        public virtual Document ParentDirectory { get; set; }
 
         public string FileName { get; set; }
 
         public int? TenantId { get; set; }
         public string Import_ExternalId { get; set; }
-        public Guid? Import_CreatedFromSessiondID { get; set; }
+        public Guid? Import_CreatedFromSessionID { get; set; }
+
+        [ForeignKey(nameof(DocumentIntegration))]
+        public int DocumentIntegrationId { get; set; }
+        public virtual DocumentIntegration DocumentIntegration { get; set; }
 
     }
 
